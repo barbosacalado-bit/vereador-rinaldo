@@ -1,0 +1,1577 @@
+:root {
+  /* Identidade Cromática Oficial */
+  --color-primary: #092DAD;         /* Azul institucional */
+  --color-primary-dark: #061e75;    /* Azul institucional profundo */
+  --color-primary-light: #e8ecfc;   /* Fundo azul muito suave */
+  --color-secondary: #058D55;       /* Verde institucional */
+  --color-secondary-light: #e6f6ee;
+  --color-accent: #FCC50A;          /* Amarelo institucional */
+  --color-accent-light: #fff9e6;
+
+  /* Neutros Técnicos */
+  --color-text-main: #202124;
+  --color-text-muted: #666B73;
+  --color-text-light: #9AA0A6;
+  --color-bg-white: #FFFFFF;
+  --color-bg-alt: #F0F4F7;          /* Fundo suave Medilo */
+  --color-border: #E1E5EA;
+  --color-border-light: #EFF2F5;
+
+  /* Tipografia */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Sistema de Elevação & Sombras Sutis */
+  --shadow-sm: 0 2px 8px rgba(9, 45, 173, 0.04);
+  --shadow-md: 0 8px 24px rgba(9, 45, 173, 0.07);
+  --shadow-lg: 0 16px 36px rgba(9, 45, 173, 0.1);
+  --shadow-card-hover: 0 20px 40px rgba(9, 45, 173, 0.12);
+
+  /* Dimensões & Espaçamento */
+  --container-max-width: 1220px;
+  --radius-capsule: 9999px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  /* Transições Medilo */
+  --transition-normal: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-smooth: all 0.4s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Identificações Superiores (Badge com traço Medilo) */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.section-badge::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+.section-badge.center {
+  justify-content: center;
+}
+
+.section-badge.center::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: clamp(30px, 3.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text-main);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-description {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botões Formato Cápsula (Medilo) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: var(--radius-capsule);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(9, 45, 173, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 6px 22px rgba(9, 45, 173, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-capsule-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  transition: var(--transition-normal);
+}
+
+.btn:hover .btn-capsule-icon {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   FAIXA 01 — HEADER PREMIUM
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-normal);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-main);
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  font-size: 26px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* ==========================================================================
+   FAIXA 02 — HERO INSTITUCIONAL
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F8FC 60%, #EBF2FA 100%);
+  padding: 80px 0 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: flex-end;
+  min-height: 580px;
+}
+
+.hero-content {
+  padding-bottom: 90px;
+  z-index: 2;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 8px 18px;
+  border-radius: var(--radius-capsule);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 5.2vw, 68px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: var(--color-text-main);
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-main);
+  margin-bottom: 24px;
+}
+
+.hero-subtitle-highlight {
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-subtitle-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-accent);
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.hero-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.hero-callout {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Geometrias de Fundo Medilo */
+.hero-circle-bg {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(9, 45, 173, 0.08) 0%, rgba(5, 141, 85, 0.04) 70%, transparent 100%);
+  bottom: -40px;
+  right: 5%;
+  z-index: 1;
+}
+
+.hero-ring-accent {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 2px dashed rgba(9, 45, 173, 0.15);
+  bottom: 20px;
+  right: 12%;
+  z-index: 1;
+}
+
+.hero-badge-floating {
+  position: absolute;
+  bottom: 80px;
+  left: -20px;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border-left: 4px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 3;
+}
+
+.hero-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.hero-badge-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.hero-badge-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(9, 45, 173, 0.15));
+}
+
+/* ==========================================================================
+   FAIXA 03 — CONQUISTAS E PROJETOS APROVADOS (Abas Medilo)
+   ========================================================================== */
+.conquistas-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-white);
+}
+
+.tabs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 14px 28px;
+  border-radius: var(--radius-capsule);
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.tab-btn:hover {
+  background: #ffffff;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.tab-btn.active {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(9, 45, 173, 0.25);
+}
+
+.tab-panel {
+  display: none;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.tab-header-area {
+  margin-bottom: 24px;
+}
+
+.tab-category-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+}
+
+.tab-category-desc {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.tab-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.work-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+  border-left: 4px solid var(--color-primary);
+  transition: var(--transition-normal);
+}
+
+.work-item-card:hover {
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.work-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.work-item-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}
+
+.work-item-content p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.work-item-status {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-capsule);
+  background: var(--color-secondary-light);
+  color: var(--color-secondary);
+  margin-top: 8px;
+}
+
+.tab-demonstrative-box {
+  background: linear-gradient(135deg, #F8FAFC 0%, var(--color-primary-light) 100%);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  border: 1px dashed rgba(9, 45, 173, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.demonstrative-tag {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #202124;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   FAIXA 04 — FALE COM O GABINETE (Grid de Cards Medilo)
+   ========================================================================== */
+.gabinete-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-alt);
+}
+
+.gabinete-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.gabinete-card {
+  background: #ffffff;
+  padding: 36px 28px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+
+.gabinete-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-primary);
+}
+
+.gabinete-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 22px;
+  transition: var(--transition-normal);
+}
+
+.gabinete-card:hover .gabinete-card-icon {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.gabinete-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+}
+
+.gabinete-card-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.gabinete-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-normal);
+}
+
+.gabinete-card:hover .gabinete-card-link {
+  color: var(--color-secondary);
+}
+
+.gabinete-integration-notice {
+  margin-top: 48px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px dashed var(--color-border);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   FAIXA 05 — FORMULÁRIOS DE DENÚNCIA (Participação Cidadã)
+   ========================================================================== */
+.denuncias-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-white);
+}
+
+.denuncias-layout {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.denuncias-info-panel {
+  padding-right: 20px;
+}
+
+.denuncias-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.category-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.category-info-item i {
+  font-size: 20px;
+  color: var(--color-secondary);
+}
+
+.category-info-item span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.denuncias-form-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-main);
+  transition: var(--transition-normal);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(9, 45, 173, 0.1);
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.privacy-notice {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  background: #FFFBEA;
+  border: 1px solid #FFE58F;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   FAIXA 06 — NOTÍCIAS DO MANDATO (Grid Editorial Medilo)
+   ========================================================================== */
+.noticias-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-alt);
+}
+
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.noticia-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.noticia-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.noticia-image-wrapper {
+  position: relative;
+  height: 240px;
+  background: linear-gradient(135deg, #1A365D, var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.noticia-category-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--color-secondary);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-capsule);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.noticia-date-badge {
+  position: absolute;
+  bottom: 0;
+  right: 24px;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.noticia-date-badge .day {
+  font-size: 20px;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.noticia-date-badge .month {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.noticia-body {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.noticia-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+}
+
+.noticia-summary {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.noticia-footer {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noticia-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.noticia-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.noticias-action-area {
+  margin-top: 56px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   FAIXA 07 — AGENDA DO VEREADOR (Painel Interativo)
+   ========================================================================== */
+.agenda-section {
+  padding: 100px 0;
+  background-color: var(--color-bg-white);
+}
+
+.agenda-tabs-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.agenda-panel {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-alt);
+  border-left: 4px solid var(--color-primary);
+  transition: var(--transition-normal);
+}
+
+.agenda-item:hover {
+  background-color: #ffffff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.agenda-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 12px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.agenda-date-box .day {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.agenda-date-box .month {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.agenda-details {
+  flex-grow: 1;
+}
+
+.agenda-item-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.agenda-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.agenda-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agenda-status-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-capsule);
+  background: var(--color-secondary-light);
+  color: var(--color-secondary);
+}
+
+.agenda-empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-muted);
+}
+
+.agenda-empty-state i {
+  font-size: 40px;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   FAIXA 08 — NOSSO INSTAGRAM (Galeria Contemporânea)
+   ========================================================================== */
+.instagram-section {
+  padding: 90px 0;
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+}
+
+.instagram-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.instagram-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(135deg, #092DAD 0%, #1A365D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.instagram-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.instagram-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 45, 173, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-normal);
+  font-size: 28px;
+}
+
+.instagram-item:hover .instagram-item-overlay {
+  opacity: 1;
+}
+
+.instagram-item-content {
+  text-align: center;
+  padding: 16px;
+}
+
+.instagram-item-content i {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.instagram-item-content span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.instagram-cta-area {
+  text-align: center;
+}
+
+/* ==========================================================================
+   FAIXA 09 — FOOTER INSTITUCIONAL PREMIUM (Painel Avançado Medilo)
+   ========================================================================== */
+.site-footer {
+  background-color: #06154A; /* Azul institucional ultra profundo */
+  color: #ffffff;
+  position: relative;
+  padding-top: 110px;
+  border-top: 4px solid var(--color-accent);
+}
+
+.footer-overlay-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Painel Institucional em Destaque que avança sobre a borda (Medilo) */
+.footer-floating-panel {
+  position: absolute;
+  top: -44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: var(--container-max-width);
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 32px 48px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.floating-panel-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.floating-panel-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.floating-panel-text h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.floating-panel-text p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 32% 18% 22% 28%;
+  gap: 40px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-col-brand .footer-logo {
+  height: 48px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-brand-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #B4B9C8;
+  margin-bottom: 24px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #B4B9C8;
+}
+
+.footer-contact-row i {
+  color: var(--color-accent);
+}
+
+.footer-col-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links-list a {
+  font-size: 14px;
+  color: #B4B9C8;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links-list a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-news-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-news-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.footer-news-content h5 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.footer-news-content h5 a:hover {
+  color: var(--color-accent);
+}
+
+.footer-news-date {
+  font-size: 12px;
+  color: #B4B9C8;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-bottom-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #B4B9C8;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-legal-links a {
+  font-size: 13px;
+  color: #B4B9C8;
+}
+
+.footer-legal-links a:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE RIGOROSA EM TODAS AS RESOLUÇÕES
+   ========================================================================== */
+
+/* Notebooks & Desktops Médios (992px a 1199px) */
+@media (max-width: 1199px) {
+  .hero-grid {
+    grid-template-columns: 52% 48%;
+  }
+
+  .gabinete-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+/* Tablets (768px a 991px) */
+@media (max-width: 991px) {
+  .site-header {
+    height: 76px;
+  }
+
+  .main-nav {
+    display: none; /* Ativado via mobile toggle */
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 30px;
+  }
+
+  .hero-content {
+    padding-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    height: 480px;
+  }
+
+  .hero-image {
+    max-height: 480px;
+  }
+
+  .tab-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .denuncias-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .noticias-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-floating-panel {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    top: -60px;
+    padding: 24px;
+  }
+
+  .floating-panel-left {
+    flex-direction: column;
+  }
+}
+
+/* Smartphones (Abaixo de 768px) */
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 26px;
+  }
+
+  .hero-section {
+    padding-top: 40px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+  }
+
+  .hero-visual {
+    height: 400px;
+  }
+
+  .hero-image {
+    max-height: 400px;
+  }
+
+  .hero-badge-floating {
+    display: none; /* Evitar poluição no mobile */
+  }
+
+  .tab-panel {
+    padding: 24px 18px;
+  }
+
+  .gabinete-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .denuncias-form-card {
+    padding: 24px 18px;
+  }
+
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-panel {
+    padding: 20px 14px;
+  }
+
+  .agenda-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .agenda-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .instagram-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Animações e Transições Suaves */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Suporte à redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
