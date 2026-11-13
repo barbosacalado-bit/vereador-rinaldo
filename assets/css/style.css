@@ -322,13 +322,22 @@ button, input, select, textarea {
   margin-bottom: 20px;
 }
 
+.hero-logo-wrapper {
+  margin-bottom: 22px;
+  display: block;
+}
+
+.hero-logo-img {
+  width: auto;
+  height: clamp(80px, 9vw, 110px);
+  max-width: 420px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(9, 45, 173, 0.12));
+}
+
 .hero-title {
-  font-size: clamp(52px, 5.5vw, 76px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
-  color: var(--color-text-main);
-  margin-bottom: 14px;
+  display: none;
 }
 
 .hero-subtitle {
