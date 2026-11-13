@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos Globais com Cache Buster -->
-  <link rel="stylesheet" href="assets/css/style.css?v=9.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=10.0">
 </head>
 <body>
 
@@ -275,7 +275,7 @@
     </section>
 
     <!-- ==========================================================================
-         FAIXA 04 — FALE COM O GABINETE (Referência: Imagem 03 Medilo)
+         FAIXA 04 — FALE COM O GABINETE (Sistema Interativo de Filas + Mascote 3D)
          ========================================================================== -->
     <section class="gabinete-section" id="gabinete">
       <div class="container">
@@ -283,79 +283,116 @@
           <div class="section-badge center">ATENDIMENTO AO CIDADÃO</div>
           <h2 class="section-title">O gabinete está aqui para ouvir você.</h2>
           <p class="section-description">
-            Escolha o assunto que deseja tratar e encontre o canal de atendimento mais adequado para encaminhar sua solicitação.
+            Escolha o assunto que deseja tratar. Nosso sistema direciona sua demanda diretamente ao assessor especialista responsável.
           </p>
         </div>
 
-        <div class="gabinete-grid">
-          <!-- Card 1: Saúde -->
-          <div class="gabinete-card" data-categoria="Saúde">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-            <h3 class="gabinete-card-title">Saúde</h3>
-            <p class="gabinete-card-desc">Encaminhe solicitações e relate dificuldades relacionadas aos serviços públicos de saúde.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
+        <!-- Moldura Interativa com o Mascote 3D Sentado no Topo -->
+        <div class="gabinete-funnel-wrapper">
+          <!-- Mascote 3D Oficial Perched no Topo -->
+          <img src="mascotes/mascote-rinaldo-sentado-apontando.jpg" alt="Mascote 3D Rinaldo Atendimento" class="mascote-top-perched">
+
+          <div class="funnel-intro-box">
+            <h3 class="funnel-step-title">
+              <i class="fa-solid fa-layer-group"></i> 1. Selecione a Categoria do seu Pedido
+            </h3>
+            <p class="funnel-step-subtitle">Clique em um dos temas abaixo para iniciar seu protocolo de atendimento com a assessoria especializada:</p>
           </div>
 
-          <!-- Card 2: Educação -->
-          <div class="gabinete-card" data-categoria="Educação">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h3 class="gabinete-card-title">Educação</h3>
-            <p class="gabinete-card-desc">Compartilhe demandas e sugestões relacionadas à rede pública de ensino.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
+          <!-- Grid dos 8 Chips Temáticos (Filas) -->
+          <div class="gabinete-categories-grid">
+            <div class="gabinete-category-chip" data-fila="Saúde">
+              <div class="category-chip-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="category-chip-name">Saúde</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Educação">
+              <div class="category-chip-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <span class="category-chip-name">Educação</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Infraestrutura">
+              <div class="category-chip-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+              <span class="category-chip-name">Infraestrutura</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Iluminação Pública">
+              <div class="category-chip-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <span class="category-chip-name">Iluminação Pública</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Limpeza Urbana">
+              <div class="category-chip-icon"><i class="fa-solid fa-broom"></i></div>
+              <span class="category-chip-name">Limpeza Urbana</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Transporte e Mobilidade">
+              <div class="category-chip-icon"><i class="fa-solid fa-bus"></i></div>
+              <span class="category-chip-name">Transporte e Mobilidade</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Assistência Social">
+              <div class="category-chip-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+              <span class="category-chip-name">Assistência Social</span>
+            </div>
+
+            <div class="gabinete-category-chip" data-fila="Outros Assuntos">
+              <div class="category-chip-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <span class="category-chip-name">Outros Assuntos</span>
+            </div>
           </div>
 
-          <!-- Card 3: Infraestrutura -->
-          <div class="gabinete-card" data-categoria="Infraestrutura">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-            <h3 class="gabinete-card-title">Infraestrutura</h3>
-            <p class="gabinete-card-desc">Informe problemas em ruas, calçadas e espaços públicos.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+          <!-- Painel Dinâmico do Assessor Responsável (Handoff) -->
+          <div class="assessor-handoff-panel" id="assessorHandoffPanel">
+            <!-- Card do Especialista -->
+            <div class="assessor-profile-card">
+              <img src="" alt="Assessor Responsável" class="assessor-avatar-img" id="assessorAvatar">
+              <div class="assessor-details">
+                <h4>
+                  <span id="assessorNome">Assessor Responsável</span>
+                  <i class="fa-solid fa-circle-check" style="color: var(--color-primary); font-size: 15px;"></i>
+                </h4>
+                <span class="assessor-cargo-tag" id="assessorCargo">Assessoria Parlamentar</span>
+                <p class="assessor-greeting" id="assessorMensagem">Mensagem de acolhimento do assessor.</p>
+              </div>
+            </div>
 
-          <!-- Card 4: Iluminação Pública -->
-          <div class="gabinete-card" data-categoria="Iluminação Pública">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
-            <h3 class="gabinete-card-title">Iluminação Pública</h3>
-            <p class="gabinete-card-desc">Comunique situações relacionadas à iluminação de ruas e áreas públicas.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+            <!-- Formulário Rápido de 3 Campos -->
+            <form id="formHandoffGabinete">
+              <div class="funnel-form-grid">
+                <div class="form-group">
+                  <label for="cidadaoNome" class="form-label">Seu Nome Completo *</label>
+                  <input type="text" id="cidadaoNome" class="form-control" placeholder="Digite seu nome" required>
+                </div>
 
-          <!-- Card 5: Limpeza Urbana -->
-          <div class="gabinete-card" data-categoria="Limpeza Urbana">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-broom"></i></div>
-            <h3 class="gabinete-card-title">Limpeza Urbana</h3>
-            <p class="gabinete-card-desc">Relate problemas de limpeza e conservação dos espaços públicos.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+                <div class="form-group">
+                  <label for="cidadaoBairro" class="form-label">Seu Bairro / Região *</label>
+                  <input type="text" id="cidadaoBairro" class="form-control" placeholder="Ex: Bairro São José" required>
+                </div>
 
-          <!-- Card 6: Transporte e Mobilidade -->
-          <div class="gabinete-card" data-categoria="Transporte e Mobilidade">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-bus"></i></div>
-            <h3 class="gabinete-card-title">Transporte e Mobilidade</h3>
-            <p class="gabinete-card-desc">Apresente demandas relacionadas ao transporte e à mobilidade urbana.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+                <div class="form-group">
+                  <label for="cidadaoTelefone" class="form-label">Seu WhatsApp *</label>
+                  <input type="tel" id="cidadaoTelefone" class="form-control" placeholder="(00) 00000-0000" required>
+                </div>
+              </div>
 
-          <!-- Card 7: Assistência Social -->
-          <div class="gabinete-card" data-categoria="Assistência Social">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-            <h3 class="gabinete-card-title">Assistência Social</h3>
-            <p class="gabinete-card-desc">Encaminhe solicitações relacionadas aos serviços de assistência social.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
+              <!-- Box de Protocolo Institucional -->
+              <div class="protocol-badge-box">
+                <div>
+                  <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block;">Número de Protocolo Oficial</span>
+                  <span class="protocol-number" id="protocoloDisplay">#VR-2026-0000</span>
+                </div>
+                <div style="font-size: 13px; color: var(--color-secondary); font-weight: 600;">
+                  <i class="fa-solid fa-shield-halved"></i> Triagem Automática Concluída
+                </div>
+              </div>
 
-          <!-- Card 8: Outros Assuntos -->
-          <div class="gabinete-card" data-categoria="Outros Assuntos">
-            <div class="gabinete-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-            <h3 class="gabinete-card-title">Outros Assuntos</h3>
-            <p class="gabinete-card-desc">Entre em contato com o gabinete para tratar de outros assuntos de interesse público.</p>
-            <span class="gabinete-card-link">Iniciar atendimento <i class="fa-solid fa-arrow-right"></i></span>
+              <button type="submit" class="btn-whatsapp-handoff">
+                <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i>
+                Encaminhar Protocolo ao Gabinete via WhatsApp
+              </button>
+            </form>
           </div>
-        </div>
-
-        <div class="gabinete-integration-notice">
-          <i class="fa-solid fa-circle-info" style="color: var(--color-primary); margin-right: 6px;"></i>
-          <strong>Integração de Atendimento:</strong> A seleção dos tópicos acima acionará o fluxo direto com a equipe do gabinete via WhatsApp oficial assim que a linha estiver configurada.
         </div>
       </div>
     </section>
@@ -888,7 +925,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/main.js"></script>
+  <!-- Scripts com suporte a modulos ES6 -->
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

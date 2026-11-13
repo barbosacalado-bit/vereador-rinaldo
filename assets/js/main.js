@@ -1,3 +1,5 @@
+import { ASSESSORES, obterAssessorPorFila } from './assessores.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Menu Mobile Toggle
   const mobileToggle = document.getElementById('mobileMenuToggle');
@@ -18,12 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
       const targetId = button.getAttribute('data-tab');
-
-      // Atualiza botões
       tabButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
-      // Atualiza painéis
       tabPanels.forEach(panel => {
         if (panel.id === targetId) {
           panel.classList.add('active');
@@ -34,54 +33,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Abas da Seção Agenda
-  const agendaButtons = document.querySelectorAll('.agenda-tab-btn');
-  const agendaItems = document.querySelectorAll('.agenda-item');
+  // 3. Sistema de Triagem por Assessor (Funil do Gabinete)
+  const categoryChips = document.querySelectorAll('.gabinete-category-chip');
+  const handoffPanel = document.getElementById('assessorHandoffPanel');
+  const avatarEl = document.getElementById('assessorAvatar');
+  const nomeEl = document.getElementById('assessorNome');
+  const cargoEl = document.getElementById('assessorCargo');
+  const mensagemEl = document.getElementById('assessorMensagem');
+  const protocoloEl = document.getElementById('protocoloDisplay');
+  const handoffForm = document.getElementById('formHandoffGabinete');
 
-  agendaButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      agendaButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
+  let categoriaSelecionada = 'Infraestrutura';
+  let assessorAtual = null;
+  let protocoloGerado = '';
 
-  // 4. Interação nos Cards de Atendimento (Fale com o Gabinete)
-  const gabineteCards = document.querySelectorAll('.gabinete-card');
-  gabineteCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const category = card.getAttribute('data-categoria');
-      console.log(`Categoria selecionada para atendimento: ${category}`);
-      
-      // Feedback sutil para o usuário
-      const notice = document.querySelector('.gabinete-integration-notice');
-      if (notice) {
-        notice.style.borderColor = 'var(--color-primary)';
-        notice.innerHTML = `<strong>Categoria selecionada: ${category}</strong> — Ponto de integração preparado. Aguardando canal oficial de WhatsApp do gabinete.`;
+  categoryChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      categoryChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      categoriaSelecionada = chip.getAttribute('data-fila');
+      assessorAtual = obterAssessorPorFila(categoriaSelecionada);
+
+      // Gera Protocolo no formato oficial do gabinete: #VR-2026-XXXX
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      protocoloGerado = `#VR-2026-${randomNum}`;
+
+      // Atualiza os dados dinâmicos do assessor responsável
+      if (avatarEl) avatarEl.src = assessorAtual.avatar;
+      if (nomeEl) nomeEl.textContent = assessorAtual.nome;
+      if (cargoEl) cargoEl.textContent = assessorAtual.cargo;
+      if (mensagemEl) mensagemEl.textContent = assessorAtual.mensagem;
+      if (protocoloEl) protocoloEl.textContent = protocoloGerado;
+
+      // Exibe suavemente o painel de transbordo
+      if (handoffPanel) {
+        handoffPanel.classList.add('visible');
+        handoffPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   });
 
-  // 5. Tratamento Responsável do Formulário de Denúncias
-  const denunciaForm = document.getElementById('formDenuncia');
-  if (denunciaForm) {
-    denunciaForm.addEventListener('submit', (e) => {
+  // 4. Envio Formatado para o WhatsApp com Protocolo e Assessor
+  if (handoffForm) {
+    handoffForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const submitBtn = denunciaForm.querySelector('button[type="submit"]');
-      const feedback = document.getElementById('formFeedback');
-      
-      if (feedback) {
-        feedback.style.display = 'block';
-        feedback.innerHTML = `
-          <div style="background: #e6f6ee; border: 1px solid #058D55; color: #058D55; padding: 16px; border-radius: 8px; font-size: 14px; margin-top: 20px;">
-            <strong>Aviso de Configuração:</strong> Interface validada. Conforme diretriz institucional, o envio real de denúncias será habilitado após a vinculação do backend seguro e credenciais oficiais.
-          </div>
-        `;
-      }
+
+      const nome = document.getElementById('cidadaoNome').value.trim();
+      const bairro = document.getElementById('cidadaoBairro').value.trim();
+      const telefone = document.getElementById('cidadaoTelefone').value.trim();
+
+      const mensagemWhatsApp = `Olá, meu nome é *${nome}* (Bairro: *${bairro}*).\n` +
+        `Estou entrando em contato através do portal do Vereador Rinaldo com o protocolo oficial *${protocoloGerado}*.\n` +
+        `*Assunto:* ${categoriaSelecionada}\n` +
+        `*Assessor Responsável:* ${assessorAtual ? assessorAtual.nome : 'Assessoria'}\n` +
+        `Gostaria de formalizar essa demanda com o gabinete.`;
+
+      // Linha única oficial do gabinete (configurável)
+      const numeroWhatsAppGabinete = '5517997812200';
+      const url = `https://wa.me/${numeroWhatsAppGabinete}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+
+      window.open(url, '_blank');
     });
   }
 
-  // 6. Header Sticky com Detecção de Rolagem
+  // 5. Header Sticky com Detecção de Rolagem
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
