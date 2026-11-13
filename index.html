@@ -18,15 +18,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos Globais com Cache Buster -->
-  <link rel="stylesheet" href="assets/css/style.css?v=7.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=8.0">
 </head>
 <body>
 
   <!-- ==========================================================================
-       FAIXA 01 — HEADER PREMIUM (Referência: Imagem 01 Medilo)
+       FAIXA 01 — HEADER PREMIUM (Referência Fiel Medilo)
        ========================================================================== -->
   <header class="site-header" id="header">
     <div class="container header-container">
+      <a href="#inicio" class="header-brand" aria-label="Vereador Rinaldo - Início">
+        <img src="assets/images/logomarca_do_vereador.png" alt="Logomarca Oficial Vereador Rinaldo" class="header-logo">
+      </a>
+
       <nav class="main-nav" id="mainNav" aria-label="Navegação Principal">
         <ul class="nav-list">
           <li><a href="#inicio" class="nav-link active">Início</a></li>
@@ -40,7 +44,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#gabinete" class="btn btn-primary">
+        <a href="#gabinete" class="btn btn-primary btn-header">
           Fale com o Gabinete
           <span class="btn-capsule-icon"><i class="fa-solid fa-arrow-right"></i></span>
         </a>
@@ -53,53 +57,68 @@
 
   <main>
     <!-- ==========================================================================
-         FAIXA 02 — HERO INSTITUCIONAL (Referência: Imagem 01 Medilo)
+         FAIXA 02 — HERO INSTITUCIONAL (Nova Direção de Arte Editorial Medilo)
          ========================================================================== -->
     <section class="hero-section" id="inicio">
+      <!-- Elementos Geométricos Sutis de Camada (Substituem os círculos genéricos) -->
+      <div class="hero-backdrop-shape"></div>
+      <div class="hero-backdrop-glow"></div>
+      <div class="hero-accent-strip"></div>
+
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-tag">
-            <i class="fa-solid fa-landmark"></i> Mandato Parlamentar
+          <!-- Identificação Institucional Editorial (Padrão Medilo) -->
+          <div class="hero-kicker">
+            <span class="hero-kicker-bar"></span>
+            <span class="hero-kicker-text">MANDATO PARLAMENTAR</span>
           </div>
-          <!-- Logomarca Oficial em Destaque Absoluto substituindo o texto RINALDO -->
-          <div class="hero-logo-wrapper">
-            <img src="assets/images/logomarca_do_vereador.png" alt="Vereador Rinaldo" class="hero-logo-img">
-          </div>
-          <div class="hero-subtitle">
-            Um mandato <span class="hero-subtitle-highlight">mais perto de você</span>.
-          </div>
+
+          <!-- Título Principal com Impacto Editorial -->
+          <h1 class="hero-title-editorial">
+            Um mandato <br>
+            <span class="hero-title-highlight">mais perto de você.<span class="hero-title-underline"></span></span>
+          </h1>
+
+          <!-- Descrição Institucional Calibrada -->
           <p class="hero-description">
             Conheça o trabalho do vereador Rinaldo, acompanhe as atividades do mandato e tenha acesso direto aos canais de atendimento do gabinete.
           </p>
+
+          <!-- Chamada Complementar Discreta e Semibold -->
           <div class="hero-callout">
-            <i class="fa-solid fa-circle-check"></i> Seu contato com o gabinete começa aqui.
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Seu contato com o gabinete começa aqui.</span>
           </div>
+
+          <!-- Botões Duplos com Altura de 56px e Alinhamento Rigoroso -->
           <div class="hero-cta-group">
-            <a href="#gabinete" class="btn btn-primary">
+            <a href="#gabinete" class="btn btn-primary btn-hero">
               Fale com o Gabinete
               <span class="btn-capsule-icon"><i class="fa-solid fa-arrow-right"></i></span>
             </a>
-            <a href="#conquistas" class="btn btn-secondary">
+            <a href="#conquistas" class="btn btn-secondary btn-hero">
               Conheça nosso trabalho
             </a>
           </div>
         </div>
 
+        <!-- Composição Fotográfica Monumental Integrada com Camadas Suaves -->
         <div class="hero-visual">
-          <div class="hero-circle-bg"></div>
-          <div class="hero-ring-accent"></div>
+          <div class="hero-composition-backdrop"></div>
+          <div class="hero-organic-panel"></div>
 
-          <div class="hero-badge-floating">
-            <div class="hero-badge-icon">
+          <!-- Card Flutuante: Gabinete Aberto / Atendimento ao Cidadão -->
+          <div class="hero-floating-card">
+            <div class="hero-floating-icon">
               <i class="fa-solid fa-comments"></i>
             </div>
-            <div>
-              <div class="hero-badge-title">Gabinete Aberto</div>
-              <div class="hero-badge-text">Atendimento ao Cidadão</div>
+            <div class="hero-floating-body">
+              <span class="hero-floating-badge">GABINETE ABERTO</span>
+              <span class="hero-floating-sub">Atendimento ao Cidadão</span>
             </div>
           </div>
 
-          <!-- Fotografia Oficial Tratada do Vereador Rinaldo -->
+          <!-- Fotografia Oficial Protagonista -->
           <img src="assets/images/vereador-01-sem-fundo.png" alt="Fotografia Oficial do Vereador Rinaldo" class="hero-image">
         </div>
       </div>
