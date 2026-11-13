@@ -293,14 +293,27 @@ button, input, select, textarea {
   box-shadow: 0 4px 14px rgba(9, 45, 173, 0.2);
 }
 
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--color-text-main);
-  font-size: 26px;
-  cursor: pointer;
-  padding: 8px;
+/* Seletor Discreto de Versão para Apresentação */
+.btn-version-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border: 1px solid rgba(9, 45, 173, 0.2);
+  padding: 8px 16px;
+  border-radius: var(--radius-capsule);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-version-switcher:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(9, 45, 173, 0.15);
 }
 
 /* ==========================================================================
