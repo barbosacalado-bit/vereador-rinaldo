@@ -397,6 +397,10 @@ button, input, select, textarea {
   margin-bottom: 24px;
 }
 
+.hero-title-green {
+  color: var(--color-secondary); /* Verde oficial da paleta #058D55 */
+}
+
 .hero-title-highlight {
   color: var(--color-primary);
   position: relative;
