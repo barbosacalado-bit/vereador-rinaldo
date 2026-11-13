@@ -475,19 +475,19 @@ button, input, select, textarea {
   z-index: 2;
 }
 
-/* Fundo Geométrico Orgânico com Contraste Sofisticado (Azul Suave / Royal Ice) */
+/* Fundo Geométrico Orgânico com 30% mais Contraste / Presença Marcante */
 .hero-composition-backdrop {
   position: absolute;
   width: 530px;
   height: 530px;
   border-radius: 44px;
-  background: linear-gradient(145deg, #E6EFFD 0%, #D8E6FC 60%, #C9DCFA 100%);
-  border: 1.5px solid rgba(9, 45, 173, 0.16);
+  background: linear-gradient(145deg, #C2D7F8 0%, #AECBF5 60%, #98BCF0 100%);
+  border: 1.5px solid rgba(9, 45, 173, 0.28);
   bottom: 0;
   right: 5%;
   transform: rotate(4deg);
   z-index: 1;
-  box-shadow: 0 24px 60px rgba(9, 45, 173, 0.12), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 24px 60px rgba(9, 45, 173, 0.18), inset 0 2px 6px rgba(255, 255, 255, 0.6);
 }
 
 .hero-organic-panel {
@@ -495,7 +495,7 @@ button, input, select, textarea {
   width: 450px;
   height: 450px;
   border-radius: 50%;
-  border: 2px dashed rgba(9, 45, 173, 0.22);
+  border: 2px dashed rgba(9, 45, 173, 0.32);
   bottom: 25px;
   right: 12%;
   z-index: 1;
