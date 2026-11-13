@@ -1881,6 +1881,20 @@ textarea.form-control {
     height: 76px;
   }
 
+  .mascote-top-perched {
+    width: 130px;
+    top: -95px;
+    right: 30px;
+  }
+
+  .gabinete-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .funnel-form-grid {
+    grid-template-columns: 1fr;
+  }
+
   .main-nav {
     display: none; /* Ativado via mobile toggle */
   }
@@ -1983,6 +1997,54 @@ textarea.form-control {
 @media (max-width: 767px) {
   .section-title {
     font-size: 26px;
+  }
+
+  /* Ajuste Fino do Mascote no Celular para Não Cobrir Texto */
+  .gabinete-funnel-wrapper {
+    padding: 70px 20px 28px;
+    margin-top: 50px;
+  }
+
+  .mascote-top-perched {
+    width: 105px;
+    top: -75px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .funnel-intro-box {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .funnel-step-title {
+    font-size: 17px;
+    justify-content: center;
+  }
+
+  .funnel-step-subtitle {
+    font-size: 13.5px;
+  }
+
+  .gabinete-categories-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .assessor-handoff-panel {
+    padding: 20px 16px;
+  }
+
+  .assessor-profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .protocol-badge-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
   }
 
   .header-logo {
