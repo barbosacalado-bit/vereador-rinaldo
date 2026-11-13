@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos Globais com Cache Buster -->
-  <link rel="stylesheet" href="assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.0">
 </head>
 <body>
 
@@ -626,83 +626,147 @@
     </section>
 
     <!-- ==========================================================================
-         FAIXA 08 — NOSSO INSTAGRAM (Feed Editorial Realista de Mandato)
+         FAIXA 08 — NOSSO INSTAGRAM (Mockup Fiel ao App Instagram da Referência)
          ========================================================================== -->
     <section class="instagram-section" id="instagram">
       <div class="container">
-        <div class="section-header-center">
-          <div class="section-badge center">ACOMPANHE NAS REDES</div>
-          <h2 class="section-title">Veja o que acontece no nosso Instagram.</h2>
-          <p class="section-description">
-            Acompanhe registros das atividades do mandato, visitas às comunidades e informações compartilhadas pelo vereador Rinaldo.
-          </p>
+        <!-- Cabeçalho idêntico à referência (Badge rosa, Título, Descrição e Botão Gradiente à direita) -->
+        <div class="instagram-section-header">
+          <div class="instagram-header-left">
+            <div class="instagram-badge-pill">
+              <i class="fa-brands fa-instagram"></i> SIGA NOSSAS REDES
+            </div>
+            <h2 class="instagram-section-title">Acompanhe nosso Instagram</h2>
+            <p class="instagram-section-desc">
+              Fique por dentro das novidades, fiscalizações nos bairros e ações do mandato do <strong>@vereadorrinaldo</strong> na nossa cidade.
+            </p>
+          </div>
+          <div>
+            <a href="https://instagram.com" class="btn-instagram-gradient" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" style="font-size: 18px;"></i>
+              @vereadorrinaldo
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="instagram-gallery-grid">
-          <!-- Post 1 -->
-          <article class="instagram-post-card">
-            <div class="instagram-post-media">
-              <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1000&q=85" alt="Vistoria em Obras">
-              <div class="instagram-post-overlay">
-                <span><i class="fa-solid fa-heart"></i> 482</span>
-                <span><i class="fa-solid fa-comment"></i> 56</span>
+        <div class="instagram-mockup-grid">
+          <!-- Card Mockup 1 -->
+          <article class="insta-post-frame">
+            <div class="insta-post-header">
+              <div class="insta-user-info">
+                <div class="insta-avatar">VR</div>
+                <div class="insta-user-names">
+                  <div class="insta-username-row">
+                    <span>vereadorrinaldo</span>
+                    <i class="fa-solid fa-circle-check insta-verified"></i>
+                  </div>
+                  <span class="insta-location">Gabinete Parlamentar</span>
+                </div>
               </div>
+              <div class="insta-more-btn"><i class="fa-solid fa-ellipsis"></i></div>
             </div>
-            <div class="instagram-post-body">
-              <span class="instagram-post-tag">Nas Ruas</span>
-              <p class="instagram-post-caption">Dia de fiscalização nas obras de drenagem e pavimentação. Nosso compromisso é cobrar prazo e qualidade para a comunidade.</p>
-              <div class="instagram-post-meta">
-                <span><i class="fa-regular fa-clock"></i> Há 2 dias</span>
-                <i class="fa-brands fa-instagram" style="color: var(--color-primary); font-size: 16px;"></i>
+
+            <div class="insta-media-box">
+              <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Vistoria em Obras">
+            </div>
+
+            <div class="insta-actions-row">
+              <div class="insta-actions-left">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-regular fa-paper-plane"></i>
               </div>
+              <i class="fa-regular fa-bookmark insta-action-save"></i>
             </div>
+
+            <div class="insta-likes-count">248 curtidas</div>
+
+            <div class="insta-caption-box">
+              <span class="insta-caption-user">vereadorrinaldo</span>
+              Dia de fiscalização nas obras de drenagem e pavimentação. Nosso compromisso é cobrar prazo e qualidade para os moradores da nossa cidade! 🚜🛣️
+            </div>
+
+            <div class="insta-time-ago">HÁ 2 DIAS</div>
           </article>
 
-          <!-- Post 2 -->
-          <article class="instagram-post-card">
-            <div class="instagram-post-media">
-              <img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?auto=format&fit=crop&w=1000&q=85" alt="Plenário da Câmara">
-              <div class="instagram-post-overlay">
-                <span><i class="fa-solid fa-heart"></i> 630</span>
-                <span><i class="fa-solid fa-comment"></i> 89</span>
+          <!-- Card Mockup 2 -->
+          <article class="insta-post-frame">
+            <div class="insta-post-header">
+              <div class="insta-user-info">
+                <div class="insta-avatar">VR</div>
+                <div class="insta-user-names">
+                  <div class="insta-username-row">
+                    <span>vereadorrinaldo</span>
+                    <i class="fa-solid fa-circle-check insta-verified"></i>
+                  </div>
+                  <span class="insta-location">Câmara Municipal</span>
+                </div>
               </div>
+              <div class="insta-more-btn"><i class="fa-solid fa-ellipsis"></i></div>
             </div>
-            <div class="instagram-post-body">
-              <span class="instagram-post-tag">Plenário</span>
-              <p class="instagram-post-caption">Defendemos hoje na tribuna a aprovação de recursos voltados para a ampliação de vagas na educação infantil.</p>
-              <div class="instagram-post-meta">
-                <span><i class="fa-regular fa-clock"></i> Há 4 dias</span>
-                <i class="fa-brands fa-instagram" style="color: var(--color-primary); font-size: 16px;"></i>
+
+            <div class="insta-media-box">
+              <img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?auto=format&fit=crop&w=800&q=80" alt="Plenário da Câmara">
+            </div>
+
+            <div class="insta-actions-row">
+              <div class="insta-actions-left">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-regular fa-paper-plane"></i>
               </div>
+              <i class="fa-regular fa-bookmark insta-action-save"></i>
             </div>
+
+            <div class="insta-likes-count">312 curtidas</div>
+
+            <div class="insta-caption-box">
+              <span class="insta-caption-user">vereadorrinaldo</span>
+              Defendemos hoje na tribuna a aprovação de recursos voltados para a ampliação de vagas na rede pública de ensino. Educação é nossa prioridade! 📚🏛️
+            </div>
+
+            <div class="insta-time-ago">HÁ 4 DIAS</div>
           </article>
 
-          <!-- Post 3 -->
-          <article class="instagram-post-card">
-            <div class="instagram-post-media">
-              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1000&q=85" alt="Reunião com Moradores">
-              <div class="instagram-post-overlay">
-                <span><i class="fa-solid fa-heart"></i> 389</span>
-                <span><i class="fa-solid fa-comment"></i> 41</span>
+          <!-- Card Mockup 3 -->
+          <article class="insta-post-frame">
+            <div class="insta-post-header">
+              <div class="insta-user-info">
+                <div class="insta-avatar">VR</div>
+                <div class="insta-user-names">
+                  <div class="insta-username-row">
+                    <span>vereadorrinaldo</span>
+                    <i class="fa-solid fa-circle-check insta-verified"></i>
+                  </div>
+                  <span class="insta-location">Comunidade Local</span>
+                </div>
               </div>
+              <div class="insta-more-btn"><i class="fa-solid fa-ellipsis"></i></div>
             </div>
-            <div class="instagram-post-body">
-              <span class="instagram-post-tag">Comunidade</span>
-              <p class="instagram-post-caption">Ouvindo de perto os moradores da Zona Norte. Mandato participativo é feito cara a cara com o povo!</p>
-              <div class="instagram-post-meta">
-                <span><i class="fa-regular fa-clock"></i> Há 1 semana</span>
-                <i class="fa-brands fa-instagram" style="color: var(--color-primary); font-size: 16px;"></i>
-              </div>
-            </div>
-          </article>
-        </div>
 
-        <div class="instagram-cta-area">
-          <a href="https://instagram.com" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-instagram" style="font-size: 18px;"></i>
-            Acompanhar no Instagram
-            <span class="btn-capsule-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-          </a>
+            <div class="insta-media-box">
+              <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Reunião com Moradores">
+            </div>
+
+            <div class="insta-actions-row">
+              <div class="insta-actions-left">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-regular fa-paper-plane"></i>
+              </div>
+              <i class="fa-regular fa-bookmark insta-action-save"></i>
+            </div>
+
+            <div class="insta-likes-count">189 curtidas</div>
+
+            <div class="insta-caption-box">
+              <span class="insta-caption-user">vereadorrinaldo</span>
+              Ouvindo de perto as lideranças comunitárias. Mandato participativo e presente é feito olho no olho, construindo soluções juntos! 🤝✨
+            </div>
+
+            <div class="insta-time-ago">HÁ 6 DIAS</div>
+          </article>
         </div>
       </div>
     </section>
