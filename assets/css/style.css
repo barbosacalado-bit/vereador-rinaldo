@@ -293,8 +293,11 @@ button, input, select, textarea {
   box-shadow: 0 4px 14px rgba(9, 45, 173, 0.2);
 }
 
-/* Seletor Discreto de Versão para Apresentação */
-.btn-version-switcher {
+.version-switch-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
   display: inline-flex;
   align-items: center;
   gap: 8px;
